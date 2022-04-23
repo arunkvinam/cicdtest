@@ -8,8 +8,7 @@ jobs:
   symfony-tests:
     runs-on: ubuntu-latest
     steps:
-     - name: Executing remote ssh commands
-        uses: appleboy/ssh-action@master
+     - name: pull command
         with:
           host: 51.89.217.40
           username: mailercloud
