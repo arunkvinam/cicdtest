@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - name: pull command
-       uses: appleboy/ssh-action@master
+       uses: git status
        with:
           host: 51.89.217.40
           username: mailercloud
