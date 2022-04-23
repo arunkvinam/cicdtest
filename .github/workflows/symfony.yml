@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - name: pull command
-        with:
+       uses: appleboy/ssh-action@master
+       with:
           host: 51.89.217.40
           username: mailercloud
           key: ssh mailercloud@51.89.217.40
