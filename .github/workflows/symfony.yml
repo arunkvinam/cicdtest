@@ -1,13 +1,15 @@
-name: ssh command
-on: push
+name: remote ssh command
+on: [push]
 jobs:
-  test:
+
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - id: ssh
-        uses: invi5H/ssh-action@v1
-        with:
-          SSH_HOST: ${{ secrets.SSH_HOST }}
-          SSH_USER: ${{ secrets.SSH_USER }}
-          SSH_KEY: ${{ secrets.SSH_KEY }}
-      - run: ssh ${{ steps.ssh.outputs.SERVER }} ls
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        password: ${{ secrets.PASSWORD }}
+        script: git status
