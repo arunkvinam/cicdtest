@@ -1,15 +1,14 @@
-name: Symfony
-
-on:
-  push:
-    branches: [ master ]
-
+name: ssh command
+on: push
 jobs:
-  symfony-tests:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: My first step
-        run: echo This is the first step of my first job.
-      - uses: actions/checkout@v3
-      - run: git status
-      - run: git pull origin master 
+      - id: ssh
+        uses: invi5H/ssh-action@v1
+        with:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+      - run: ssh ${{ steps.ssh.outputs.SERVER }} pwd
