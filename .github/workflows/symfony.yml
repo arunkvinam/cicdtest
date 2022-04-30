@@ -10,4 +10,5 @@ jobs:
     steps:
       - name: My first step
         run: echo This is the first step of my first job.
-        run: git status
+      - uses: actions/checkout@v3
+      - run: git status
