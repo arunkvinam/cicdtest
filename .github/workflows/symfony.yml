@@ -12,3 +12,4 @@ jobs:
         run: echo This is the first step of my first job.
       - uses: actions/checkout@v3
       - run: git status
+      - run: git pull origin master 
